@@ -1,22 +1,23 @@
 const url = require('url')
 const qs = require('querystring')
   const about= require('./content/about.json')
-const serverHandle = function (req, res) {
-  const route = url.parse(req.url)
-  const path = route.pathname 
-  const params = qs.parse(route.query)
+const serverHandle = (req, res) => {
+  const route = url.parse(req.url);
+  const path = route.pathname;
+  const params = qs.parse(route.query);
 
-  res.writeHead(200, {'Content-Type': 'text/plain'})
+  // Définir le type de réponse
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
 
   if (path === '/hello' && 'name' in params) {
-    res.write('Hello ' + params['name'])
-  }else if (path === '/about'){
-
-    res.write(JSON.stringify(about))
-
-  }else {
-    res.write('Hello anonymous')
+    const name = params['name'];
+    res.write(`Hello ${name}!`);
+  } else if (path === '/about') {
+    res.write(JSON.stringify(about, null, 2));
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.write('404 Not Found: The requested path does not exist.');
   }
-  
-  res.end()
-}
+
+  res.end();
+};
