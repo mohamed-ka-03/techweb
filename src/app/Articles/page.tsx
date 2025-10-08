@@ -6,7 +6,7 @@ export default function Article() {
     <div>
    <main>
       <Header></Header>
-      <div className="flex flex-col items-center gap-8">HELLO Article</div>
+      <div className="flex flex-col items-center gap-8 justify-center">HELLO Article</div>
       
    </main>
     </div>

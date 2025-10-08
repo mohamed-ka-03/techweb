@@ -18,7 +18,7 @@ export default function Header() {
                         <Link href="/Contact" className="py-2 px-6 flex hover:underline">
                             Contact
                         </Link>
-                        <Link href="Article" className="py-2 px-6 flex hover:underline">
+                        <Link href="Articles" className="py-2 px-6 flex hover:underline">
                             Article
                         </Link>
                       
